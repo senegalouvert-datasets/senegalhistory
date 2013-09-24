@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+  {{account.id}} / {{account.fullname}}
+{% endblock %}
+
+{% block content %}
+  <div class="page-header">
+    <h1>{{account.id}} <small>{{account.fullname}}</small></h1>
+  </div>
+
+  <div class="row">
+    <div class="span3">
+      <dl class="vcard">
+        <dt>Member since</dt>
+        <dd>{{account._created}}</dd>
+        <dt>Name</dt>
+        <dd>{{account.fullname}}</dd>
+      </dl>
+      <ul class="stats">
+        <li>
+          <strong>{{views.length}}</strong> views
+        </li>
+      </ul>
+    </div>
+
+    <div class="span9">
+      <h2>Views</h2>
+      <ul class="view-summary-list">
+      {% for view in views %}
+        <li>
+          <h3>
+            <a href="/{{view.owner}}/{{view.name}}">
+              {{view.title}} <small>({{view.name}})</small>
+            </a>
+          </h3>
+          {{view.description}}
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endblock %}

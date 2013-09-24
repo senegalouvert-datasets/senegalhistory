@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block bodyclass %}create{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h1>
+    Create your Time<span class="brand-ext">Map</span>
+  </h1>
+</div>
+
+<div class="instructions">
+  <div class="row">
+    <div class="span4">
+      <div class="well">
+        <h3>1. Create a Spreadsheet</h3>
+        <p>Add your dates and places to a Google Spreadsheet.</p>
+      </div>
+    </div>
+    <div class="span4">
+      <div class="well">
+        <h3>2. Connect and Customize</h2>
+        <p>Connect your spreadsheet with TimeMapper and customize the results.</p>
+      </div>
+    </div>
+    <div class="span4">
+      <div class="well">
+        <h3>3. Publish, Embed and Share</h3>
+        <p>Publish your TimeMap at your own personal url, then share or embed on your site.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<div id="create" class="row">
+  <div class="span8 offset2 well">
+    <h2>1. Create your Spreadsheet</h2>
+    <div class="alert alert-success" style="width: 60%; margin-left: auto; margin-right: auto;">
+      Impatient to try this out but don't have a spreadsheet yet?<br />
+    <a href="#" class="js-demo-sheet" data-url="https://docs.google.com/spreadsheet/ccc?key=0Al6mO9_3Hr2PdGZnRjEwUWxOekhreTNNZEFEMWRZbkE"
+      >
+      Click here to use a pre-prepared example &raquo;</a>
+    </div>
+
+    <p>The easiest way to get started is to copy (or follow) <strong><a href="https://docs.google.com/spreadsheet/ccc?key=0Aon3JiuouxLUdDlGV2lCakoydVh1U014cHRqcXpoWVE">this template</a></strong>.
+    </p>
+
+    <div class="alert">
+    Note: you must "Publish" your spreadsheet: in the spreadsheet go to <em>File menu &rarr; Publish to Web</em> and then select "Start publishing..."
+    </div>
+
+    <p>Any problems check out the FAQ below.</p>
+  </div>
+</div>
+
+<div id="connect" class="row js-connect">
+  <div class="span8 offset2 well">
+<h2>
+  2+3. Connect, Customize and Publish
+</h2>
+
+<form class="js-load-url form-horizontal" action="" method="GET">
+  <fieldset>
+    <div class="control-group">
+      <label for="source" class="control-label">Spreadsheet</label>
+      <div class="controls">
+        <p>
+        <button title="Select from Google Drive" class="gdrive-import btn"><i class="gdrive"></i> Select from Your Google Drive</button>
+        </p>
+        <input type="url" value="" name="source" required
+          class="input span6"
+          placeholder="Or paste the Google Spreadsheet URL directly" />
+      </div>
+    </div>
+    <div class="stage2" style="display: none;">
+      <div class="control-group">
+        <label for="title" class="control-label">Title</label>
+        <div class="controls">
+          <input type="text"
+            value=""
+            name="title"
+            class="input span6"
+            required
+            placeholder="My TimeMap Title" />
+        </div>
+      </div>
+      <div class="control-group">
+        <label for="slug" class="control-label">Slug</label>
+        <div class="controls">
+          <div class="input-prepend">
+            <span class="add-on">/{{currentUser.id}}/</span>
+            <input type="text"
+              value=""
+              name="slug"
+              class="input span4"
+              placeholder="my-timemap-title"
+              required
+              pattern="[a-z0-9-]+"
+              title="The slug needs to be 'url-usable' and so must be lowercase containing only alphanumeric characters and '-'"
+              />
+          </div>
+          <span class="help-block">The url of your new timemap. Choose wisely as this hard to change!</span>
+        </div>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <button type="submit" class="btn btn-primary js-submit">Connect and Publish &raquo;</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+</div>
+</div>
+
+<hr />
+
+<div class="faq">
+  <h2>FAQ</h2>
+
+  <h3>What Structure must the Spreadsheet Have?</h3>
+  <p>TimeMapper recognizes certain specific columns / fields in your spreadsheet data. Best overview is <a href="https://docs.google.com/spreadsheet/ccc?key=0Aon3JiuouxLUdDlGV2lCakoydVh1U014cHRqcXpoWVE">the template</a>. Note that not all fields are required (strictly only required fields are title and start field (though even start could be omitted if you only want a map).</p>
+  <p>Note that you can also add any number of other columns beyond those that TimeMapper uses.</p>
+
+  <h3>Date Formats</h3>
+  <p>Preferred date format is ISO 8601 i.e. 2000-01-01 however we'll recognize most types of date.</p>
+</div>
+
+{% endblock %}
+
+{% block extrabody %}
+  <script type="text/javascript" src="http://okfnlabs.org/recline.backend.gdocs/backend.gdocs.js"></script>
+
+  <script src="http://www.google.com/jsapi"></script>
+  <script type="text/javascript">
+    // setup gdocs file picker
+    google.load('picker', '1');
+  </script>
+
+  <!-- non-library javascript specific to this demo -->
+  <script type="text/javascript" src="js/create.js"></script>
+{% endblock %}

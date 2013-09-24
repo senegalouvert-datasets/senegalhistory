@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>
+    {% block title%}{{title}}{% endblock %}
+    - TimeMapper - Make Timelines and TimeMaps fast!
+    - from the Open Knowledge Foundation Labs
+  </title>
+  <meta name="description" content="TimeMapper - Make Timelines and TimeMaps fast! - from the Open Knowledge Foundation Labs" />
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!-- offline use -->
+  <!--
+  <link href="/vendor/bootstrap/2.2.2/bootstrap.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/2.2.2/bootstrap-responsive.css" rel="stylesheet">
+  -->
+  <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <!-- okf ribbon -->
+  <link rel="stylesheet" href="http://assets.okfn.org/themes/okfn/okf-panel.css"/>
+
+  {% block extrahead %}{% endblock %}
+
+  <!-- Custom CSS for the TimeMapper Online App -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="{% block bodyclass %}{{bodyclass}}{% endblock %}">
+<!--div id="okf-panel" class="collapse">
+  <iframe src="http://assets.okfn.org/themes/okfn/okf-panel.html"></iframe>
+</div>
+<div class="okfn-ribbon">
+  <a data-toggle="collapse" data-target="#okf-panel" href="http://okfnlabs.org/" target="_blank">An Open Knowledge Foundation Labs Project</a>
+</div-->
+{% block navbar %}
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="/">Time<span class="brand-ext">Mapper</span> from the Open Knowledge Foundation</a>
+      <ul class="nav">
+      </ul>
+      <ul class="nav pull-right">
+        {% if currentUser %} 
+        <li><a class="username" href="/{{currentUser.id}}"><i class="icon-user"></i> {{currentUser.id}}</a></li>
+        <li><a class="logout" href="/account/logout" title="sign out"><i class="icon-signout"></i></a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+<div class="container">
+<div class="content">
+
+{% block content %}{{content}}{% endblock %}
+
+    <div class="footer">
+      {% block footer %}
+      The <a href="http://timemapper.okfnlabs.org/"><strong>TimeMapper</strong></a> is a project of <a href="http://okfnlabs.org/">Open Knowledge Foundation</a> &ndash; <a href="https://github.com/okfn/timeliner">Source Code</a>.
+      TimeMapper is open-source &ndash; 
+      <a href="https://github.com/okfn/timeliner#copyright-and-license">Copyright &amp; License</a>.
+      {% endblock %}
+    </div>
+  </div>
+</div> <!-- /content -->
+</div> <!-- / container-fluid -->
+
+<script type="text/javascript" src="/vendor/recline/vendor/jquery/1.7.1/jquery.js"></script>
+<script type="text/javascript" src="/vendor/recline/vendor/underscore/1.4.4/underscore.js"></script>
+
+<script type="text/javascript">
+  // define global TM object and set some config
+  var TM = TM || {};
+  TM.locals = {
+    currentUser: "{{currentUser.id}}"
+  };
+</script>
+
+{% block extrabody %}{% endblock %}
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33874954-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</body>
+</html>

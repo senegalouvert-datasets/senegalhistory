@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block bodyclass %}home{% endblock %}
+
+{% block content %}
+    <div class="hero-unit">
+      <h1>
+        Time<span class="brand-ext">Mapper</span>
+        <small>Elegant timemaps created in seconds</small>
+      </h1>
+      <br />
+      <!--p>
+        <a href="/account/login" class="btn btn-large btn-primary">
+          It's free and easy to use &raquo;
+          sign in with Twitter
+          to get started
+          <i class="icon-twitter"></i>
+        </a>
+      </p-->
+    </div>
+
+    <div class="examples row">
+      <div class="span12">
+        <h2 style="text-align: center;">Examples</h2>
+      </div>
+      <div class="span4 offset2">
+        <h4><a href="/okfn/medieval-philosophers">Medieval Philosophers</a></h4>
+        <a href="/okfn/medieval-philosophers">
+          <img src="http://farm6.staticflickr.com/5323/8768093210_3343870b2a_n.jpg" alt="Medieval Philosophers" />
+        </a>
+      </div>
+      <div class="span4">
+        <h4><a href="okfn/western-front-ww1">Western Front in WWI</a></h4>
+        <a href="okfn/western-front-ww1">
+          <img src="http://farm9.staticflickr.com/8285/7508403206_420de3ce5e_n.jpg" alt="" />
+        </a>
+      </div>
+    </div>
+
+
+        <h2 style="text-align: center; margin: 30px;">How It Works</h2>
+        <div class="row instructions">
+          <div class="span4">
+            <div class="well">
+              <h3>1. Create a Spreadsheet</h3>
+              <p>Add your dates and places to a Google Spreadsheet.</p>
+            </div>
+          </div>
+          <div class="span4">
+            <div class="well">
+              <h3>2. Connect and Customize</h2>
+              <p>Connect your spreadsheet with TimeMapper and customize the results.</p>
+            </div>
+          </div>
+          <div class="span4">
+            <div class="well">
+              <h3>3. Publish, Embed and Share</h3>
+              <p>Publish your TimeMap at your own personal url, then share or embed on your site.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 style="text-align: center; margin: 30px 0;" id="credits">Credits</h2>
+        <p style="width: 500px; margin: auto;">
+        TimeMapper is only possible thanks to a set of awesome open-source components including <a href="http://timeline.verite.co/">TimelineJS</a>, <a href="http://okfnlabs.org/recline/">ReclineJS</a>, <a href="http://leafletjs.com/">Leaflet</a>, <a href="http://backbonejs.org/">Backbone</a> and <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>. You can find the <a href="https://github.com/okfn/timeliner">full open-source source for TimeMapper on GitHub here</a>.
+        </p>
+      </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+*.pyc
+*.egg-info/*
+.*.swp
+sandbox/*
+app.cfg
+node_modules
+# nodemon
+.monitor
+settings.json*
+test/data/db/*
+.env
