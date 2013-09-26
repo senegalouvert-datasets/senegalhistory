@@ -1,4 +1,9 @@
 
+Senegalhistory
+==============
+
+![Texte alternatif](http://farm4.staticflickr.com/3732/9952787965_d32eb66f3e_b_d.jpg "texte pour le titre, facultatif")
+
 Senegalhistory is an open source project initiated by Open Knowlege Foundation Local Initiative which aims to to
 track events marking the history of senegal
 history of the resistors, the hostoriques monuments
