@@ -1,3 +1,6 @@
 [submodule "db/senegalhistory-data"]
 	path = db/senegalhistory-data
 	url = git://github.com/senegalouvert/senegalhistory-data.git
+[submodule "public/vendor/recline"]
+	path = public/vendor/recline
+	url = git://github.com/okfn/recline.git
